@@ -4,9 +4,9 @@ import { EASE, SectionHeading, Tilt } from './fx';
 
 export default function About() {
   const facts = [
-    { k: 'Now', v: 'B.Tech, AI & ML', s: `${education[0].school} · ${education[0].score}` },
-    { k: 'Training', v: `${experience[0].role}, ${experience[0].company}`, s: experience[0].period },
-    { k: 'Primary language', v: 'Java', s: 'with Python, C, C++' },
+    { k: 'Now', v: 'Software Engineer', s: `${experience[0].company} · ${experience[0].place}` },
+    { k: 'Education', v: 'B.Tech, CSE', s: `${education[0].school} · ${education[0].score}` },
+    { k: 'Primary stack', v: 'Java 17/21 & Spring Boot', s: 'PostgreSQL, Kafka, AWS SQS' },
     { k: 'Based in', v: profile.location, s: 'India' },
   ];
 
@@ -47,7 +47,7 @@ export default function About() {
 
         <div>
           <motion.p
-            className="font-serif text-[clamp(1.6rem,3.2vw,2.6rem)] italic leading-[1.15] text-bone"
+            className="font-serif text-[clamp(1.35rem,2.8vw,2.6rem)] italic leading-[1.2] text-bone"
             initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}
@@ -55,10 +55,10 @@ export default function About() {
           >
             “{profile.intro}”
           </motion.p>
-          <p className="mt-4 text-sm text-mist">— {profile.fullName}</p>
+          <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-mist">— {profile.fullName}</p>
 
           <motion.dl
-            className="mt-10 grid gap-px overflow-hidden rounded-xl bg-white/10 sm:grid-cols-2"
+            className="mt-8 sm:mt-10 grid gap-px overflow-hidden rounded-xl bg-white/10 sm:grid-cols-2"
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
@@ -67,12 +67,12 @@ export default function About() {
             {facts.map((f) => (
               <motion.div
                 key={f.k}
-                className="bg-ink-2 p-5"
+                className="bg-ink-2 p-4 sm:p-5"
                 variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } } }}
               >
                 <dt className="text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">{f.k}</dt>
-                <dd className="mt-2 text-base font-semibold text-bone">{f.v}</dd>
-                <dd className="mt-0.5 text-xs text-mist">{f.s}</dd>
+                <dd className="mt-1.5 sm:mt-2 text-sm sm:text-base font-semibold text-bone">{f.v}</dd>
+                <dd className="mt-0.5 text-xs text-mist leading-relaxed break-words">{f.s}</dd>
               </motion.div>
             ))}
           </motion.dl>

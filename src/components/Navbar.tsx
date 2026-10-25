@@ -106,7 +106,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -8, scale: 0.97 }}
                   transition={{ duration: 0.25, ease: EASE }}
-                  className="absolute right-0 top-12 w-60 origin-top-right rounded-xl border border-white/10 bg-ink-2/95 p-2 shadow-2xl backdrop-blur-xl"
+                  className="absolute right-0 top-12 w-60 max-w-[calc(100vw-32px)] origin-top-right rounded-xl border border-white/10 bg-ink-2/95 p-2 shadow-2xl backdrop-blur-xl"
                 >
                   <p className="px-3 pb-2 pt-1 text-[10px] font-semibold tracking-[0.24em] text-smoke">WHO&apos;S WATCHING?</p>
                   {viewerProfiles.map((p) => (
@@ -148,7 +148,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
         {mobileNav && (
           <motion.nav
             aria-label="Sections"
-            className="gutter border-b border-white/5 bg-ink/95 pb-6 pt-2 backdrop-blur-xl lg:hidden"
+            className="gutter border-b border-white/5 bg-ink/95 pb-6 pt-2 backdrop-blur-xl lg:hidden max-h-[calc(100svh-64px)] overflow-y-auto"
             initial={{ clipPath: 'inset(0 0 100% 0)' }}
             animate={{ clipPath: 'inset(0 0 0% 0)' }}
             exit={{ clipPath: 'inset(0 0 100% 0)' }}
@@ -162,7 +162,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
                 initial={{ opacity: 0, x: -12 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.05 * i }}
-                className={`block w-full py-3 text-left font-display text-3xl tracking-wide ${active === l.id ? 'text-crimson-2' : 'text-bone'}`}
+                className={`block w-full py-2.5 sm:py-3 text-left font-display text-2xl sm:text-3xl tracking-wide ${active === l.id ? 'text-crimson-2' : 'text-bone'}`}
               >
                 {l.label}
               </motion.button>

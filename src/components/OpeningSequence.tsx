@@ -6,7 +6,7 @@ import { EASE, Magnetic } from './fx';
 
 /**
  * The signature moment:
- * black → studio card → SUSHMITA → THE SERIES → portrait reveal → role → ▶ PLAY
+ * black → studio card → ABHISHEK → THE SERIES → portrait reveal → role → ▶ PLAY
  */
 const TIMELINE = [
   { at: 300, beat: 1 }, // studio card
@@ -102,17 +102,17 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 text-center">
         <motion.h1
           className="font-display leading-[0.82] text-bone drop-shadow-[0_8px_40px_rgba(0,0,0,0.8)]"
-          style={{ fontSize: 'clamp(4.6rem, 20vw, 15rem)' }}
-          initial={{ opacity: 0, scale: 1.3, filter: 'blur(20px)', letterSpacing: '0.5em' }}
-          animate={beat >= 2 ? { opacity: 1, scale: 1, filter: 'blur(0px)', letterSpacing: '0.04em', y: beat >= 4 ? '-30vh' : 0 } : {}}
+          style={{ fontSize: 'clamp(3rem, 16vw, 15rem)' }}
+          initial={{ opacity: 0, scale: 1.3, filter: 'blur(20px)', letterSpacing: '0.3em' }}
+          animate={beat >= 2 ? { opacity: 1, scale: 1, filter: 'blur(0px)', letterSpacing: '0.04em', y: beat >= 4 ? '-22vh' : 0 } : {}}
           transition={{ duration: 1.3, ease: EASE }}
         >
           {profile.firstName}
         </motion.h1>
         <motion.p
-          className="font-sans text-sm font-bold text-crimson-2 [text-shadow:0_2px_20px_rgba(0,0,0,0.9)] sm:text-lg"
-          initial={{ opacity: 0, letterSpacing: '1.4em' }}
-          animate={beat >= 3 ? { opacity: 1, letterSpacing: '0.7em', y: beat >= 4 ? '-30vh' : 0 } : {}}
+          className="font-sans text-xs font-bold text-crimson-2 [text-shadow:0_2px_20px_rgba(0,0,0,0.9)] sm:text-lg"
+          initial={{ opacity: 0, letterSpacing: '0.8em' }}
+          animate={beat >= 3 ? { opacity: 1, letterSpacing: '0.38em', y: beat >= 4 ? '-22vh' : 0 } : {}}
           transition={{ duration: 1.1, ease: EASE }}
         >
           {profile.seriesTag}
@@ -120,9 +120,9 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
       </div>
 
       {/* role + play */}
-      <div className="absolute inset-x-0 bottom-[9vh] z-20 flex flex-col items-center gap-6 px-4 text-center">
+      <div className="absolute inset-x-0 bottom-[8vh] z-20 flex flex-col items-center gap-4 sm:gap-6 px-4 text-center">
         <motion.p
-          className="font-sans text-[10px] font-semibold uppercase tracking-[0.22em] text-bone/90 sm:text-sm sm:tracking-[0.4em]"
+          className="font-sans text-[10px] font-semibold uppercase tracking-[0.18em] text-bone/90 sm:text-sm sm:tracking-[0.4em]"
           initial={{ opacity: 0, y: 14 }}
           animate={beat >= 5 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: EASE }}
@@ -136,9 +136,9 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
               data-cursor="play"
               onClick={onDone}
               tabIndex={beat >= 6 ? 0 : -1}
-              className="group flex items-center gap-3 rounded-full bg-bone px-9 py-4 font-sans text-base font-bold tracking-wide text-ink shadow-[0_0_60px_rgba(229,19,43,0.45)] transition hover:bg-white"
+              className="group flex items-center gap-2.5 sm:gap-3 rounded-full bg-bone px-7 py-3 sm:px-9 sm:py-4 font-sans text-sm sm:text-base font-bold tracking-wide text-ink shadow-[0_0_60px_rgba(229,19,43,0.45)] transition hover:bg-white"
             >
-              <span className="text-lg transition-transform group-hover:scale-125">▶</span> PLAY
+              <span className="text-base sm:text-lg transition-transform group-hover:scale-125">▶</span> PLAY
             </button>
           </Magnetic>
         </motion.div>

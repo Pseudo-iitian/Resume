@@ -8,7 +8,7 @@ import { EASE, RevealText } from './fx';
 import { PosterBackdrop } from './Poster';
 import { RailButtons } from './Rail';
 
-const GLYPHS: Record<SectionId, string> = { about: 'S', journey: 'S01', originals: '3', picks: '10', skills: '{ }', moments: '★', story: 'CV' };
+const GLYPHS: Record<SectionId, string> = { about: 'A', journey: 'S01', originals: '3', picks: '10', skills: '{ }', moments: '★', story: 'CV' };
 
 export default function ContinueWatching({ order }: { order: SectionId[] }) {
   const progress = useWatchProgress();
@@ -39,7 +39,7 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
                 onHoverEnd={() => setHovered(null)}
                 onFocus={() => setHovered(i)}
                 onBlur={() => setHovered(null)}
-                className="group relative aspect-video w-[72vw] shrink-0 snap-start overflow-visible text-left sm:w-[42vw] md:w-[30vw] lg:w-[22vw]"
+                className="group relative aspect-video w-[76vw] min-w-[250px] max-w-[340px] shrink-0 snap-start overflow-visible text-left sm:w-[42vw] sm:min-w-0 sm:max-w-none md:w-[30vw] lg:w-[22vw]"
                 initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
                 whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 viewport={{ once: true, margin: '-5% 0px' }}
@@ -52,16 +52,16 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
                       <span className="absolute -right-2 -top-6 font-display text-[8rem] leading-none text-white/[0.07] sm:text-[9rem]">{GLYPHS[id]}</span>
                     </PosterBackdrop>
                   </motion.div>
-                  <div className="absolute inset-0 flex flex-col justify-end p-4">
-                    <span className="mb-1 text-[10px] font-bold uppercase tracking-[0.3em] text-crimson-2">Episode {String(i + 1).padStart(2, '0')}</span>
-                    <span className="font-display text-2xl leading-none tracking-wide text-bone transition-transform duration-500 group-hover:-translate-y-1 sm:text-3xl">
+                  <div className="absolute inset-0 flex flex-col justify-end p-3.5 sm:p-4 pr-12 sm:pr-14">
+                    <span className="mb-0.5 sm:mb-1 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.24em] sm:tracking-[0.3em] text-crimson-2">Episode {String(i + 1).padStart(2, '0')}</span>
+                    <span className="font-display text-xl sm:text-2xl leading-none tracking-wide text-bone transition-transform duration-500 group-hover:-translate-y-1 sm:text-3xl">
                       {meta.card}
                     </span>
-                    <span className="mt-1 text-xs text-mist opacity-100 transition duration-500 lg:translate-y-2 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
+                    <span className="mt-1 truncate text-[11px] sm:text-xs text-mist opacity-100 transition duration-500 lg:translate-y-2 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
                       {meta.meta}
                     </span>
                   </div>
-                  <span className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/40 bg-black/40 text-xs text-bone backdrop-blur transition duration-500 group-hover:scale-110 group-hover:border-bone group-hover:bg-bone group-hover:text-ink">
+                  <span className="absolute right-2.5 top-2.5 sm:right-3 sm:top-3 flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-white/40 bg-black/40 text-xs text-bone backdrop-blur transition duration-500 group-hover:scale-110 group-hover:border-bone group-hover:bg-bone group-hover:text-ink">
                     ▶
                   </span>
                 </div>

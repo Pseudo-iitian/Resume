@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
-import { achievements, certifications, education, profile, projects, type ProfileId } from '../data/portfolio';
+import { achievements, profile, projects, type ProfileId } from '../data/portfolio';
 import { useFinePointer } from '../hooks/useMedia';
 import { useSmoothScroll } from '../hooks/smoothScroll';
 import { EASE, Magnetic, Particles } from './fx';
@@ -37,16 +37,16 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
   const glowX = useTransform(px, [-1, 1], ['-6%', '6%']);
 
   const meta = [
-    education[0].period.split(' – ')[0].split(' ')[1] + ' – Present',
-    'B.Tech AI & ML',
+    'Rapipay Fintech',
+    'Java 17/21 • Spring Boot',
     `${projects.length} Originals`,
-    `${certifications.length} Certifications`,
+    '1,500+ DSA',
   ];
 
   const floating = [
-    { text: education[0].score, sub: 'B.Tech AI & ML', pos: 'left-[2%] top-[30%]', depth: 1 },
+    { text: '99% → 5–20%', sub: 'AWS DB Writer Load', pos: 'left-[2%] top-[30%]', depth: 1 },
     { text: `${achievements[0].title}`, sub: achievements[0].org, pos: 'right-[0%] top-[18%]', depth: -1 },
-    { text: 'Java · React · Node.js', sub: 'Primary stack', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
+    { text: 'Java · Spring Boot · Kafka', sub: 'Primary stack', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
   ];
 
   return (
@@ -74,7 +74,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
 
       {/* portrait */}
       <motion.div
-        className="absolute inset-x-0 top-12 z-[2] flex h-[64svh] items-end justify-center sm:h-[70svh] lg:bottom-0 lg:left-auto lg:right-[3vw] lg:top-20 lg:h-auto lg:w-[54vw] xl:right-[6vw] xl:w-[48vw]"
+        className="absolute inset-x-0 top-12 z-[2] flex h-[52svh] sm:h-[64svh] items-end justify-center lg:bottom-0 lg:left-auto lg:right-[3vw] lg:top-20 lg:h-auto lg:w-[54vw] xl:right-[6vw] xl:w-[48vw]"
         style={{ y: imgY, scale: imgScale, opacity: fade }}
       >
         <motion.div
@@ -105,69 +105,69 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
       </motion.div>
 
       {/* readability gradients */}
-      <div aria-hidden className="absolute inset-x-0 top-[40svh] z-[3] h-[36svh] bg-gradient-to-b from-transparent via-ink/70 to-ink lg:hidden" />
+      <div aria-hidden className="absolute inset-x-0 top-[32svh] z-[3] h-[48svh] bg-gradient-to-b from-transparent via-ink/80 to-ink lg:hidden" />
       <div aria-hidden className="absolute inset-0 z-[3] hidden bg-[linear-gradient(90deg,var(--color-ink)_0%,rgba(7,7,10,0.7)_32%,transparent_58%)] lg:block" />
       <div aria-hidden className="absolute inset-x-0 bottom-0 z-[3] h-48 bg-gradient-to-t from-ink to-transparent" />
 
       {/* copy */}
       <motion.div
-        className="gutter relative z-[4] flex min-h-[100svh] flex-col justify-end pb-16 pt-[54svh] sm:pb-20 lg:max-w-[52vw] lg:justify-center lg:pb-0 lg:pt-24"
+        className="gutter relative z-[4] flex min-h-[100svh] flex-col justify-end pb-12 pt-[40svh] sm:pb-16 sm:pt-[48svh] lg:max-w-[52vw] lg:justify-center lg:pb-0 lg:pt-24"
         style={{ y: textY, opacity: fade }}
         variants={container}
         initial="hidden"
         animate="show"
       >
-        <motion.div variants={item} className="mb-3 text-lg">
+        <motion.div variants={item} className="mb-2 sm:mb-3 text-base sm:text-lg">
           <SeriesMark />
         </motion.div>
-        <motion.h1 variants={item} className="font-display leading-[0.82] tracking-[0.02em] text-bone" style={{ fontSize: 'clamp(4rem, 12vw, 11rem)' }}>
+        <motion.h1 variants={item} className="font-display leading-[0.82] tracking-[0.02em] text-bone" style={{ fontSize: 'clamp(2.8rem, 11vw, 11rem)' }}>
           <span className="shimmer-text">{profile.firstName}</span>
         </motion.h1>
-        <motion.p variants={item} className="mt-1 font-sans text-sm font-bold tracking-[0.62em] text-crimson-2 sm:text-base">
+        <motion.p variants={item} className="mt-1 font-sans text-xs font-bold tracking-[0.34em] text-crimson-2 sm:text-base sm:tracking-[0.62em]">
           {profile.seriesTag}
         </motion.p>
 
-        <motion.div variants={item} className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] font-medium text-mist">
-          <span className="rounded border border-white/25 px-1.5 py-px text-[10px] font-bold tracking-wider text-bone">AI·ML</span>
+        <motion.div variants={item} className="mt-4 sm:mt-5 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-xs sm:text-[13px] font-medium text-mist">
+          <span className="rounded border border-white/25 px-1.5 py-px text-[10px] font-bold tracking-wider text-bone">BACKEND</span>
           {meta.map((m, i) => (
-            <span key={m} className="flex items-center gap-3">
+            <span key={m} className="flex items-center gap-2 sm:gap-3">
               {i > 0 && <span className="h-1 w-1 rounded-full bg-smoke" />}
               {m}
             </span>
           ))}
         </motion.div>
 
-        <motion.p variants={item} className="mt-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-bone/90 sm:text-xs sm:tracking-[0.34em]">
+        <motion.p variants={item} className="mt-3 sm:mt-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-bone/90 sm:text-xs sm:tracking-[0.34em]">
           {profile.tagline.join(' • ')}
         </motion.p>
 
-        <motion.p variants={item} className="mt-4 max-w-xl text-[15px] leading-relaxed text-bone/80 sm:text-base">
+        <motion.p variants={item} className="mt-3 sm:mt-4 max-w-xl text-sm leading-relaxed text-bone/80 sm:text-base">
           {profile.intro}
         </motion.p>
 
-        <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-3">
+        <motion.div variants={item} className="mt-6 sm:mt-8 flex flex-wrap items-center gap-2.5 sm:gap-3">
           <Magnetic>
             <button
               type="button"
               data-cursor="play"
               onClick={onPlay}
-              className="flex min-h-12 items-center gap-3 rounded-md bg-bone px-6 py-3 text-[15px] font-bold text-ink transition hover:bg-white sm:px-8"
+              className="flex min-h-11 sm:min-h-12 items-center gap-2.5 sm:gap-3 rounded-md bg-bone px-5 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-[15px] font-bold text-ink transition hover:bg-white"
             >
-              <span className="text-lg">▶</span> Play Intro
+              <span className="text-base sm:text-lg">▶</span> Play Intro
             </button>
           </Magnetic>
           <Magnetic>
             {profileId === 'recruiter' ? (
-              <button type="button" onClick={onResume} className="glass flex min-h-12 items-center gap-3 rounded-md px-6 py-3 text-[15px] font-semibold text-bone transition hover:bg-white/15 sm:px-8">
-                <span className="text-lg">⤓</span> View Resume
+              <button type="button" onClick={onResume} className="glass flex min-h-11 sm:min-h-12 items-center gap-2.5 sm:gap-3 rounded-md px-5 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-[15px] font-semibold text-bone transition hover:bg-white/15">
+                <span className="text-base sm:text-lg">⤓</span> View Resume
               </button>
             ) : (
               <button
                 type="button"
                 onClick={() => scrollTo('#originals')}
-                className="glass flex min-h-12 items-center gap-3 rounded-md px-6 py-3 text-[15px] font-semibold text-bone transition hover:bg-white/15 sm:px-8"
+                className="glass flex min-h-11 sm:min-h-12 items-center gap-2.5 sm:gap-3 rounded-md px-5 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-[15px] font-semibold text-bone transition hover:bg-white/15"
               >
-                <span className="text-xl leading-none">＋</span> My Work
+                <span className="text-lg sm:text-xl leading-none">＋</span> My Work
               </button>
             )}
           </Magnetic>
@@ -175,7 +175,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
             type="button"
             onClick={() => scrollTo('#about')}
             aria-label="More info"
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/30 text-lg text-bone transition hover:border-bone hover:bg-white/10"
+            className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/30 text-base sm:text-lg text-bone transition hover:border-bone hover:bg-white/10"
           >
             ⓘ
           </button>

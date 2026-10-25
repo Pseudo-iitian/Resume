@@ -139,14 +139,14 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
               <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.5em] text-crimson-2 sm:text-xs">
                 Episode {String(index + 1).padStart(2, '0')} · {slide.kicker}
               </p>
-              <h2 className="font-display leading-[0.88] text-bone" style={{ fontSize: 'clamp(3rem, 10vw, 8.5rem)' }}>
+              <h2 className="font-display leading-[0.88] text-bone" style={{ fontSize: 'clamp(2.2rem, 8vw, 8.5rem)' }}>
                 {slide.title}
               </h2>
-              <div className="mt-6 space-y-2">
+              <div className="mt-4 sm:mt-6 space-y-1.5 sm:space-y-2">
                 {slide.lines.map((l, i) => (
                   <motion.p
                     key={l}
-                    className="text-base text-bone/80 sm:text-xl"
+                    className="text-sm sm:text-base md:text-xl text-bone/80"
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.35 + i * 0.15, duration: 0.6, ease: EASE }}
@@ -156,11 +156,11 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
                 ))}
               </div>
               {slide.chips && (
-                <div className="mt-6 flex flex-wrap justify-center gap-2">
+                <div className="mt-4 sm:mt-6 flex flex-wrap justify-center gap-1.5 sm:gap-2">
                   {slide.chips.map((c, i) => (
                     <motion.span
                       key={c}
-                      className="glass rounded-full px-3 py-1 text-xs font-semibold tracking-wide text-bone"
+                      className="glass rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 text-[11px] sm:text-xs font-semibold tracking-wide text-bone"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.6 + i * 0.06 }}

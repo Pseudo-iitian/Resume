@@ -11,10 +11,17 @@ export default function Scene({ id, children, className = '' }: { id: string; ch
   useTrackProgress(id, ref);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'start 0.55'] });
   const opacity = useTransform(scrollYProgress, [0, 1], [0.15, 1]);
-  const scale = useTransform(scrollYProgress, [0, 1], [0.97, 1]);
+
+  if (id === 'originals') {
+    return (
+      <section id={id} ref={ref} className={`relative scroll-mt-16 ${className}`}>
+        {children}
+      </section>
+    );
+  }
 
   return (
-    <motion.section id={id} ref={ref} style={{ opacity, scale }} className={`relative scroll-mt-16 py-16 sm:py-24 ${className}`}>
+    <motion.section id={id} ref={ref} style={{ opacity }} className={`relative scroll-mt-16 py-16 sm:py-24 ${className}`}>
       {children}
     </motion.section>
   );

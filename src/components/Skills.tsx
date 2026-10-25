@@ -76,12 +76,12 @@ function SkillCard({ skill, hue }: { skill: Skill; hue: string }) {
         exit: { opacity: 0, y: -12, transition: { duration: 0.2 } },
       }}
       whileHover={{ y: -6 }}
-      className="group relative flex min-h-[148px] flex-col overflow-hidden rounded-xl bg-ink-2 p-4 text-left ring-1 ring-white/10 transition-shadow duration-500 hover:ring-white/20"
+      className="group relative flex min-h-[135px] sm:min-h-[148px] h-full flex-col overflow-hidden rounded-xl bg-ink-2 p-3 sm:p-4 text-left ring-1 ring-white/10 transition-shadow duration-500 hover:ring-white/20"
       style={{ boxShadow: open ? `0 18px 50px -12px ${hue}55, 0 0 0 1px ${hue}66` : undefined }}
     >
       <div aria-hidden className="absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-0 blur-2xl transition duration-500 group-hover:opacity-60" style={{ background: hue }} />
       <motion.span
-        className="relative flex h-12 w-12 items-center justify-center rounded-lg font-display text-2xl tracking-wide"
+        className="relative flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg font-display text-xl sm:text-2xl tracking-wide"
         style={{ background: `${hue}1f`, color: hue, boxShadow: `inset 0 0 0 1px ${hue}55` }}
         animate={open ? { rotate: [0, -8, 8, 0], scale: 1.08 } : { rotate: 0, scale: 1 }}
         transition={{ duration: 0.5 }}
@@ -89,8 +89,8 @@ function SkillCard({ skill, hue }: { skill: Skill; hue: string }) {
       >
         {skill.mono}
       </motion.span>
-      <span className="relative mt-4 flex items-center gap-2 text-[15px] font-semibold text-bone">
-        {skill.name}
+      <span className="relative mt-3 sm:mt-4 flex flex-wrap items-center gap-1.5 text-xs sm:text-[15px] font-semibold text-bone break-words">
+        <span>{skill.name}</span>
         {skill.note && (
           <span className="rounded px-1.5 py-px text-[9px] font-bold uppercase tracking-wider text-ink" style={{ background: hue }}>
             {skill.note}
@@ -100,7 +100,7 @@ function SkillCard({ skill, hue }: { skill: Skill; hue: string }) {
       <AnimatePresence initial={false}>
         {open && evidence && (
           <motion.span
-            className="relative mt-2 block text-[11px] leading-snug text-mist"
+            className="relative mt-2 block text-[10px] sm:text-[11px] leading-snug text-mist break-words"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
